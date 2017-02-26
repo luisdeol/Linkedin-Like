@@ -15,6 +15,9 @@ namespace JobsWebApp.Models
         public string Bio { get; set; }
 
         public string UserId { get; set; }
-        public ApplicationUser ApplicationUser { get; set; }
+        public IEnumerable<Post> Posts { get; set; }
+        public IEnumerable<JobOffer> JobOffers { get; set; }
+        public IEnumerable<Appliance> Appliances { get; set; }
+        public IEnumerable<UserSkill> Skills { get; set; }
     }
 }

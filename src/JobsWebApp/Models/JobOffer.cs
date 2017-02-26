@@ -14,5 +14,6 @@ namespace JobsWebApp.Models
 
         public int UserProfileId { get; set; }
         public UserProfile UserProfile { get; set; }
+        public IEnumerable<Appliance> Appliances { get; set; }
     }
 }
