@@ -5,13 +5,12 @@ using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Migrations;
 using JobsWebApp.Data;
 
-namespace JobsWebApp.Data.Migrations
+namespace JobsWebApp.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20170226220409_AddBasicModelClasses_SetUpRelationships")]
-    partial class AddBasicModelClasses_SetUpRelationships
+    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
     {
-        protected override void BuildTargetModel(ModelBuilder modelBuilder)
+        protected override void BuildModel(ModelBuilder modelBuilder)
         {
             modelBuilder
                 .HasAnnotation("ProductVersion", "1.0.1")
@@ -34,7 +33,8 @@ namespace JobsWebApp.Data.Migrations
 
             modelBuilder.Entity("JobsWebApp.Models.ApplicationUser", b =>
                 {
-                    b.Property<string>("Id");
+                    b.Property<string>("Id")
+                        .HasColumnName("AspNetUserId");
 
                     b.Property<int>("AccessFailedCount");
 
@@ -69,6 +69,8 @@ namespace JobsWebApp.Data.Migrations
                     b.Property<string>("UserName")
                         .HasAnnotation("MaxLength", 256);
 
+                    b.Property<string>("UserProfileName");
+
                     b.HasKey("Id");
 
                     b.HasIndex("NormalizedEmail")
@@ -78,7 +80,7 @@ namespace JobsWebApp.Data.Migrations
                         .IsUnique()
                         .HasName("UserNameIndex");
 
-                    b.ToTable("AspNetUsers");
+                    b.ToTable("AspNetUser","Security");
                 });
 
             modelBuilder.Entity("JobsWebApp.Models.JobOffer", b =>
@@ -147,6 +149,8 @@ namespace JobsWebApp.Data.Migrations
                     b.Property<string>("PersonalWebpageUrl");
 
                     b.Property<string>("UserId");
+
+                    b.Property<string>("UserName");
 
                     b.HasKey("Id");
 

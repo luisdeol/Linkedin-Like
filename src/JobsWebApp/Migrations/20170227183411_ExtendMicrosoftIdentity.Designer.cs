@@ -5,12 +5,13 @@ using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Migrations;
 using JobsWebApp.Data;
 
-namespace JobsWebApp.Data.Migrations
+namespace JobsWebApp.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20170227183411_ExtendMicrosoftIdentity")]
+    partial class ExtendMicrosoftIdentity
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
             modelBuilder
                 .HasAnnotation("ProductVersion", "1.0.1")
@@ -33,7 +34,8 @@ namespace JobsWebApp.Data.Migrations
 
             modelBuilder.Entity("JobsWebApp.Models.ApplicationUser", b =>
                 {
-                    b.Property<string>("Id");
+                    b.Property<string>("Id")
+                        .HasColumnName("AspNetUserId");
 
                     b.Property<int>("AccessFailedCount");
 
@@ -44,6 +46,10 @@ namespace JobsWebApp.Data.Migrations
                         .HasAnnotation("MaxLength", 256);
 
                     b.Property<bool>("EmailConfirmed");
+
+                    b.Property<string>("FirstName");
+
+                    b.Property<string>("LastName");
 
                     b.Property<bool>("LockoutEnabled");
 
@@ -68,6 +74,8 @@ namespace JobsWebApp.Data.Migrations
                     b.Property<string>("UserName")
                         .HasAnnotation("MaxLength", 256);
 
+                    b.Property<string>("UserProfileName");
+
                     b.HasKey("Id");
 
                     b.HasIndex("NormalizedEmail")
@@ -77,7 +85,7 @@ namespace JobsWebApp.Data.Migrations
                         .IsUnique()
                         .HasName("UserNameIndex");
 
-                    b.ToTable("AspNetUsers");
+                    b.ToTable("AspNetUser","Security");
                 });
 
             modelBuilder.Entity("JobsWebApp.Models.JobOffer", b =>
@@ -146,6 +154,8 @@ namespace JobsWebApp.Data.Migrations
                     b.Property<string>("PersonalWebpageUrl");
 
                     b.Property<string>("UserId");
+
+                    b.Property<string>("UserName");
 
                     b.HasKey("Id");
 

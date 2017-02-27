@@ -81,6 +81,13 @@ namespace JobsWebApp.Data
                 .WithMany(u => u.Skills)
                 .HasForeignKey(us => us.UserProfileId)
                 .OnDelete(DeleteBehavior.Restrict);
+
+            builder.Entity<ApplicationUser>(entity =>
+            {
+                entity.ToTable(name: "AspNetUser", schema: "Security");
+                entity.Property(e => e.Id).HasColumnName("AspNetUserId");
+
+            });
             // Customize the ASP.NET Identity model and override the defaults if needed.
             // For example, you can rename the ASP.NET Identity table names and more.
             // Add your customizations after calling base.OnModelCreating(builder);
