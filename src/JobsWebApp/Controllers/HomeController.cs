@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace JobsWebApp.Controllers
@@ -10,7 +11,7 @@ namespace JobsWebApp.Controllers
     {
         public IActionResult Index()
         {
-            return View();
+           return View();
         }
 
         public IActionResult About()

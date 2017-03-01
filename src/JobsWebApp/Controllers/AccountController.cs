@@ -12,6 +12,7 @@ using Microsoft.Extensions.Logging;
 using JobsWebApp.Models;
 using JobsWebApp.Models.AccountViewModels;
 using JobsWebApp.Services;
+using Microsoft.AspNetCore.Http;
 
 namespace JobsWebApp.Controllers
 {
@@ -66,6 +67,8 @@ namespace JobsWebApp.Controllers
                 var result = await _signInManager.PasswordSignInAsync(model.Email, model.Password, model.RememberMe, lockoutOnFailure: false);
                 if (result.Succeeded)
                 {
+                    var userProfile = _context.UserProfiles.SingleOrDefault(u => u.Email == model.Email);
+                    HttpContext.Session.SetString("sessionUser", userProfile.Id.ToString());
                     _logger.LogInformation(1, "User logged in.");
                     return RedirectToLocal(returnUrl);
                 }
@@ -115,7 +118,9 @@ namespace JobsWebApp.Controllers
                     Email = model.Email,
                     UserProfileName = model.UserProfileName
                 };
+
                 var result = await _userManager.CreateAsync(user, model.Password);
+
                 if (result.Succeeded)
                 {
                     // For more information on how to enable account confirmation and password reset please visit http://go.microsoft.com/fwlink/?LinkID=532713
@@ -129,10 +134,15 @@ namespace JobsWebApp.Controllers
                         FirstName = model.FirstName,
                         LastName = model.LastName,
                         UserName = model.UserProfileName,
-                        UserId = user.Id
+                        UserId = user.Id,
+                        Email = model.Email
                     };
+
                     _context.UserProfiles.Add(profile);
                     _context.SaveChanges();
+                    var userProfile = _context.UserProfiles.SingleOrDefault(u => u.Email == model.Email);
+                    HttpContext.Session.SetString("sessionUser", userProfile.Id.ToString());
+
                     await _signInManager.SignInAsync(user, isPersistent: false);
                     _logger.LogInformation(3, "User created a new account with password.");
                     return RedirectToLocal(returnUrl);

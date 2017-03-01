@@ -14,6 +14,7 @@ namespace JobsWebApp.Models
         public string GithubUrl { get; set; }
         public string PersonalWebpageUrl { get; set; }
         public string Bio { get; set; }
+        public string Email { get; set; }
 
         public string UserId { get; set; }
         public IEnumerable<Post> Posts { get; set; }
