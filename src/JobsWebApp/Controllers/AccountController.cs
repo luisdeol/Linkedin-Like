@@ -60,6 +60,7 @@ namespace JobsWebApp.Controllers
         public async Task<IActionResult> Login(LoginViewModel model, string returnUrl = null)
         {
             ViewData["ReturnUrl"] = returnUrl;
+
             if (ModelState.IsValid)
             {
                 // This doesn't count login failures towards account lockout
@@ -70,7 +71,7 @@ namespace JobsWebApp.Controllers
                     var userProfile = _context.UserProfiles.SingleOrDefault(u => u.Email == model.Email);
                     HttpContext.Session.SetString("sessionUser", userProfile.Id.ToString());
                     _logger.LogInformation(1, "User logged in.");
-                    return RedirectToLocal(returnUrl);
+                    return RedirectToAction("Index", "Posts");
                 }
                 if (result.RequiresTwoFactor)
                 {
@@ -145,7 +146,7 @@ namespace JobsWebApp.Controllers
 
                     await _signInManager.SignInAsync(user, isPersistent: false);
                     _logger.LogInformation(3, "User created a new account with password.");
-                    return RedirectToLocal(returnUrl);
+                    return RedirectToAction("Index", "Posts");
                 }
                 AddErrors(result);
             }

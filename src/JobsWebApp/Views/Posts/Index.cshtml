@@ -1,0 +1,42 @@
+﻿@using JobsWebApp.ViewModels
+@model JobsWebApp.ViewModels.HomeViewModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h2>Index</h2>
+
+<form asp-controller="Posts" asp-action="Create" method="post">
+    <div class="form-group">
+        <label asp-for="PostFormViewModel.Content"></label>
+        <textarea asp-for="PostFormViewModel.Content" class="form-control" placeholder="Content"></textarea>
+    </div>
+    <input type="submit" class="btn btn-primary"/>
+</form>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Content
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.Posts)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Content)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+                    @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+                    @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
