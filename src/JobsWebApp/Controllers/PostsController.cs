@@ -2,9 +2,9 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using JobsWebApp.Core.Models;
+using JobsWebApp.Core.ViewModels;
 using JobsWebApp.Data;
-using JobsWebApp.Models;
-using JobsWebApp.ViewModels;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 

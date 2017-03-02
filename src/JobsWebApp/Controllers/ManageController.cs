@@ -2,12 +2,12 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using JobsWebApp.Core.Models;
+using JobsWebApp.Core.Models.ManageViewModels;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
-using JobsWebApp.Models;
-using JobsWebApp.Models.ManageViewModels;
 using JobsWebApp.Services;
 
 namespace JobsWebApp.Controllers

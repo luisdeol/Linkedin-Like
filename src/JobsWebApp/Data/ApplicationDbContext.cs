@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using JobsWebApp.Core.Models;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
-using JobsWebApp.Models;
 using Microsoft.EntityFrameworkCore.Metadata;
 
 namespace JobsWebApp.Data
