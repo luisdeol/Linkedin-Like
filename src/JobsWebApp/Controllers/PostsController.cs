@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using JobsWebApp.Core.Models;
 using JobsWebApp.Core.ViewModels;
 using JobsWebApp.Data;
+using JobsWebApp.Services.Interfaces;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -12,11 +13,11 @@ namespace JobsWebApp.Controllers
 {
     public class PostsController : Controller
     {
-        private readonly ApplicationDbContext _context;
+        private readonly IPostService _postService;
 
-        public PostsController(ApplicationDbContext context)
+        public PostsController(IPostService postService)
         {
-            _context = context;
+            _postService = postService;
         }
 
         public IActionResult Index()
@@ -28,7 +29,7 @@ namespace JobsWebApp.Controllers
             var viewModel = new HomeViewModel
             {
                 IsAuthenticated = true,
-                Posts = _context.Posts.ToList()
+                Posts = _postService.ListAllPosts()
             };
 
             return View(viewModel);
@@ -43,8 +44,7 @@ namespace JobsWebApp.Controllers
                 CreatedAt = DateTime.Now,
                 UserProfileId = int.Parse(HttpContext.Session.GetString("sessionUser"))
             };
-            _context.Posts.Add(post);
-            _context.SaveChanges();
+            _postService.AddPost(post);
             return RedirectToAction("Index");
         }
     }
