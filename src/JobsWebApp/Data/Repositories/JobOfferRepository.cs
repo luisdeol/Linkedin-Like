@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using JobsWebApp.Core.Models;
 using JobsWebApp.Core.Repositories;
 
@@ -7,7 +8,7 @@ namespace JobsWebApp.Data.Repositories
 {
     class JobOfferRepository : IJobOfferRepository
     {
-        private ApplicationDbContext _context;
+        private readonly ApplicationDbContext _context;
 
         public JobOfferRepository(ApplicationDbContext context)
         {
@@ -16,27 +17,27 @@ namespace JobsWebApp.Data.Repositories
 
         public IEnumerable<JobOffer> GetAll()
         {
-            throw new NotImplementedException();
+            return _context.JobOffers.ToList();
         }
 
         public void Add(JobOffer jobOffer)
         {
-            throw new NotImplementedException();
+            _context.JobOffers.Add(jobOffer);
         }
 
-        public void Delete(int id)
+        public void Delete(JobOffer jobOffer)
         {
-            throw new NotImplementedException();
+            _context.JobOffers.Remove(jobOffer);
         }
 
         public void Edit(JobOffer jobOffer)
         {
-            throw new NotImplementedException();
+            _context.JobOffers.Update(jobOffer);
         }
 
         public JobOffer FindById(int id)
         {
-            throw new NotImplementedException();
+            return _context.JobOffers.SingleOrDefault(jb => jb.Id == id);
         }
     }
 }

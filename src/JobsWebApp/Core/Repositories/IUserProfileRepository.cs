@@ -9,7 +9,7 @@ namespace JobsWebApp.Core.Repositories
     {
         IEnumerable<UserProfile> GetAll();
         void Add(UserProfile userProfile);
-        void Delete(int id);
+        void Delete(UserProfile userProfile);
         void Edit(UserProfile userProfile);
         UserProfile FindById(int id);
     }

@@ -12,7 +12,7 @@ namespace JobsWebApp.Data
     {
         private readonly ApplicationDbContext _context;
         public IApplianceRepository ApplianceRepository { get; set; }
-        public IJobOfferRepository JobRepository { get; set; }
+        public IJobOfferRepository JobOfferRepository { get; set; }
         public IPostRepository PostRepository { get; set; }
         public IUserProfileRepository UserProfileRepository { get; set; }
         public IUserSkillRepository UserSkillRepository { get; set; }
@@ -21,7 +21,7 @@ namespace JobsWebApp.Data
         {
             _context = context;
             ApplianceRepository = new ApplianceRepository(_context);
-            JobRepository = new JobOfferRepository(_context);
+            JobOfferRepository = new JobOfferRepository(_context);
             PostRepository = new PostRepository(_context);
             UserProfileRepository = new UserProfileRepository(_context);
             UserSkillRepository = new UserSkillRepository(_context);

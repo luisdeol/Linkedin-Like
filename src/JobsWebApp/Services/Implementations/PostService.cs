@@ -20,7 +20,7 @@ namespace JobsWebApp.Services.Implementations
             _unitOfWork.Save();
         }
 
-        public IEnumerable<Post> ListAllPosts()
+        public IEnumerable<Post> GetAllPosts()
         {
             return _unitOfWork.PostRepository.GetAll();
         }
@@ -31,7 +31,7 @@ namespace JobsWebApp.Services.Implementations
             _unitOfWork.Save();
         }
 
-        public Post FindPost(int id)
+        public Post GetPost(int id)
         {
             return _unitOfWork.PostRepository.FindById(id);
         }

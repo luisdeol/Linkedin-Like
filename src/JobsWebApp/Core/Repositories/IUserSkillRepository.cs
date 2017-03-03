@@ -9,7 +9,7 @@ namespace JobsWebApp.Core.Repositories
     {
         IEnumerable<UserSkill> GetAll();
         void Add(UserSkill userSkill);
-        void Delete(int id);
+        void Delete(UserSkill userSkill);
         void Edit(UserSkill userSkill);
         UserSkill FindById(int id);
     }

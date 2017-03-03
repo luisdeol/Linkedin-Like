@@ -24,7 +24,7 @@ namespace JobsWebApp.Data.Repositories
             throw new NotImplementedException();
         }
 
-        public void Delete(int id)
+        public void Delete(UserSkill userSkill)
         {
             throw new NotImplementedException();
         }
