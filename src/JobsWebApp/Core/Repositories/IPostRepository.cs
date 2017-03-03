@@ -9,7 +9,7 @@ namespace JobsWebApp.Core.Repositories
     {
         IEnumerable<Post> GetAll();
         void Add(Post post);
-        void Delete(int id);
+        void Delete(Post post);
         void Edit(Post post);
         Post FindById(int id);
     }

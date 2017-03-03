@@ -24,6 +24,23 @@ namespace JobsWebApp.Services.Implementations
         {
             return _unitOfWork.PostRepository.GetAll();
         }
+
+        public void DeletePost(Post post)
+        {
+            _unitOfWork.PostRepository.Delete(post);
+            _unitOfWork.Save();
+        }
+
+        public Post FindPost(int id)
+        {
+            return _unitOfWork.PostRepository.FindById(id);
+        }
+
+        public void EditPost(Post post)
+        {
+            _unitOfWork.PostRepository.Edit(post);
+            _unitOfWork.Save();
+        }
     }
 
 }

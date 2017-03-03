@@ -25,19 +25,19 @@ namespace JobsWebApp.Data.Repositories
             _context.Posts.Add(post);
         }
 
-        public void Delete(int id)
+        public void Delete(Post post)
         {
-            throw new NotImplementedException();
+            _context.Posts.Remove(post);
         }
 
         public void Edit(Post post)
         {
-            throw new NotImplementedException();
+            _context.Posts.Update(post);
         }
 
         public Post FindById(int id)
         {
-            throw new NotImplementedException();
+            return _context.Posts.SingleOrDefault(p=> p.Id == id);
         }
     }
 }
