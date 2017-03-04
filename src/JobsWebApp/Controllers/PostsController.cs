@@ -25,25 +25,19 @@ namespace JobsWebApp.Controllers
             var sessionId = HttpContext.Session.GetString("sessionUser");
             if (sessionId == null)
                 return View();
-
             var viewModel = new HomeViewModel
             {
                 IsAuthenticated = true,
-                Posts = _postService.ListAllPosts()
+                Posts = _postService.GetAllPosts()
             };
-
             return View(viewModel);
         }
 
         [HttpPost]
         public IActionResult Create(HomeViewModel vm)
         {
-            var post = new Post
-            {
-                Content = vm.PostFormViewModel.Content,
-                CreatedAt = DateTime.Now,
-                UserProfileId = int.Parse(HttpContext.Session.GetString("sessionUser"))
-            };
+            var userProfileId = int.Parse(HttpContext.Session.GetString("sessionUser"));
+            var post = new Post(vm.PostFormViewModel.Content, userProfileId);
             _postService.AddPost(post);
             return RedirectToAction("Index");
         }

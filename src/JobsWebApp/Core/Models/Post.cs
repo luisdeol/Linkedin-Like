@@ -10,5 +10,12 @@ namespace JobsWebApp.Core.Models
 
         public int UserProfileId { get; set; }
         public UserProfile UserProfile { get; set; }
+
+        public Post(string content, int userProfileId)
+        {
+            Content = content;
+            CreatedAt = DateTime.Now;
+            UserProfileId = userProfileId;
+        }
     }
 }
