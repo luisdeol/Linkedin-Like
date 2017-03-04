@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using JobsWebApp.Core.Models;
 using JobsWebApp.Core.Repositories;
 
@@ -16,27 +17,27 @@ namespace JobsWebApp.Data.Repositories
 
         public IEnumerable<Appliance> GetAll()
         {
-            throw new NotImplementedException();
+            return _context.Appliances.ToList();
         }
 
         public void Add(Appliance appliance)
         {
-            throw new NotImplementedException();
+            _context.Appliances.Add(appliance);
         }
 
-        public void Delete(int id)
+        public void Delete(Appliance appliance)
         {
-            throw new NotImplementedException();
+            _context.Appliances.Remove(appliance);
         }
 
         public void Edit(Appliance appliance)
         {
-            throw new NotImplementedException();
+            _context.Appliances.Update(appliance);
         }
 
         public Appliance FindById(int id)
         {
-            throw new NotImplementedException();
+            return _context.Appliances.SingleOrDefault(a=> a.Id == id);
         }
     }
 }

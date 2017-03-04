@@ -2,6 +2,7 @@
 {
     public class UserSkill
     {
+        public int Id { get; set; }
         public int SkillId { get; set; }
         public int UserProfileId { get; set; }
 
