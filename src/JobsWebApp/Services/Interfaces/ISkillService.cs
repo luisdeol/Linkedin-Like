@@ -5,7 +5,7 @@ using JobsWebApp.Core.Models;
 
 namespace JobsWebApp.Services.Interfaces
 {
-    public interface ISkillInterface
+    public interface ISkillService
     {
         void AddSkill(Skill skill);
         Skill GetSkill(int id);

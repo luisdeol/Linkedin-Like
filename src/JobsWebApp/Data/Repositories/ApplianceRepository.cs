@@ -8,7 +8,7 @@ namespace JobsWebApp.Data.Repositories
 {
     class ApplianceRepository : IApplianceRepository
     {
-        private ApplicationDbContext _context;
+        private readonly ApplicationDbContext _context;
 
         public ApplianceRepository(ApplicationDbContext context)
         {

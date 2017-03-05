@@ -13,6 +13,7 @@ namespace JobsWebApp.Core
         IPostRepository PostRepository { get; set; }
         IUserProfileRepository UserProfileRepository { get; set; }
         IUserSkillRepository UserSkillRepository { get; set; }
+        ISkillRepository SkillRepository { get; set; }
         void Save();
     }
 }

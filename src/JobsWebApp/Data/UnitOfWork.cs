@@ -16,7 +16,7 @@ namespace JobsWebApp.Data
         public IPostRepository PostRepository { get; set; }
         public IUserProfileRepository UserProfileRepository { get; set; }
         public IUserSkillRepository UserSkillRepository { get; set; }
-
+        public ISkillRepository SkillRepository { get; set; }
         public UnitOfWork(ApplicationDbContext context)
         {
             _context = context;
@@ -25,6 +25,7 @@ namespace JobsWebApp.Data
             PostRepository = new PostRepository(_context);
             UserProfileRepository = new UserProfileRepository(_context);
             UserSkillRepository = new UserSkillRepository(_context);
+            SkillRepository = new SkillRepository(_context);
         }
 
         public void Save()
