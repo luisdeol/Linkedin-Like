@@ -1,35 +1,45 @@
 using System;
 using System.Collections.Generic;
+using JobsWebApp.Core;
 using JobsWebApp.Core.Models;
 using JobsWebApp.Services.Interfaces;
 
 namespace JobsWebApp.Services.Implementations
 {
-    class UserSkillService : IUserSkillService
+    public class UserSkillService : IUserSkillService
     {
+        private readonly IUnitOfWork _unitOfWork;
+
+        public UserSkillService(IUnitOfWork unitOfWork)
+        {
+            _unitOfWork = unitOfWork;
+        }
         public void AddUserSkill(UserSkill userSkill)
         {
-            throw new NotImplementedException();
+            _unitOfWork.UserSkillRepository.Add(userSkill);
+            _unitOfWork.Save();
         }
 
         public UserSkill GetUserSkill(int id)
         {
-            throw new NotImplementedException();
+            return _unitOfWork.UserSkillRepository.FindById(id);
         }
 
         public IEnumerable<UserSkill> GetAllUserSkills()
         {
-            throw new NotImplementedException();
+            return _unitOfWork.UserSkillRepository.GetAll();
         }
 
         public void DeleteUserSkill(UserSkill userSkill)
         {
-            throw new NotImplementedException();
+            _unitOfWork.UserSkillRepository.Delete(userSkill);
+            _unitOfWork.Save();
         }
 
         public void EditUserSkill(UserSkill userSkill)
         {
-            throw new NotImplementedException();
+            _unitOfWork.UserSkillRepository.Edit(userSkill);
+            _unitOfWork.Save();
         }
     }
 }
