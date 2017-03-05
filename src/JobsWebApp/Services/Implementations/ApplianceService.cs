@@ -16,27 +16,30 @@ namespace JobsWebApp.Services.Implementations
         }
         public Appliance GetAppliance(int id)
         {
-            throw new NotImplementedException();
+            return _unitOfWork.ApplianceRepository.FindById(id);
         }
 
         public IEnumerable<Appliance> GetAllAppliances()
         {
-            throw new NotImplementedException();
+            return _unitOfWork.ApplianceRepository.GetAll();
         }
 
         public void DeleteAppliance(Appliance appliance)
         {
-            throw new NotImplementedException();
+            _unitOfWork.ApplianceRepository.Delete(appliance);
+            _unitOfWork.Save();
         }
 
         public void EditAppliance(Appliance appliance)
         {
-            throw new NotImplementedException();
+            _unitOfWork.ApplianceRepository.Edit(appliance);
+            _unitOfWork.Save();
         }
 
         public void AddAppliance(Appliance appliance)
         {
-            throw new NotImplementedException();
+            _unitOfWork.ApplianceRepository.Add(appliance);
+            _unitOfWork.Save();
         }
     }
 }

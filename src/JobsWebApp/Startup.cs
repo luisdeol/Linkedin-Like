@@ -61,6 +61,11 @@ namespace JobsWebApp
             services.AddTransient<ISmsSender, AuthMessageSender>();
             services.AddSingleton<IUnitOfWork, UnitOfWork>();
             services.AddSingleton<IPostService, PostService>();
+            services.AddSingleton<IApplianceService, ApplianceService>();
+            services.AddSingleton<IJobOfferService, JobOfferService>();
+            services.AddSingleton<ISkillService, SkillService>();
+            services.AddSingleton<IUserProfileService, UserProfileService>();
+            services.AddSingleton<IUserSkillService, UserSkillService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
