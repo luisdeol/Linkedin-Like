@@ -11,6 +11,10 @@ namespace JobsWebApp.Core.Models
         public int UserProfileId { get; set; }
         public UserProfile UserProfile { get; set; }
 
+        public Post()
+        {
+            
+        }
         public Post(string content, int userProfileId)
         {
             Content = content;

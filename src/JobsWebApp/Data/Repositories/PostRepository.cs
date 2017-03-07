@@ -17,7 +17,7 @@ namespace JobsWebApp.Data.Repositories
 
         public IEnumerable<Post> GetAll()
         {
-            return _context.Posts.ToList();
+            return _context.Posts.OrderByDescending(p=> p.CreatedAt);
         }
 
         public void Add(Post post)

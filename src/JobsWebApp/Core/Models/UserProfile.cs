@@ -14,9 +14,9 @@ namespace JobsWebApp.Core.Models
         public string Email { get; set; }
 
         public string UserId { get; set; }
-        public IEnumerable<Post> Posts { get; set; }
-        public IEnumerable<JobOffer> JobOffers { get; set; }
-        public IEnumerable<Appliance> Appliances { get; set; }
-        public IEnumerable<UserSkill> Skills { get; set; }
+        public ICollection<Post> Posts { get; set; }
+        public ICollection<JobOffer> JobOffers { get; set; }
+        public ICollection<Appliance> Appliances { get; set; }
+        public ICollection<UserSkill> Skills { get; set; }
     }
 }

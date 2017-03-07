@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using JobsWebApp.Core.Models;
 using JobsWebApp.Core.Repositories;
+using Microsoft.EntityFrameworkCore;
 
 namespace JobsWebApp.Data.Repositories
 {
@@ -17,7 +18,7 @@ namespace JobsWebApp.Data.Repositories
 
         public IEnumerable<JobOffer> GetAll()
         {
-            return _context.JobOffers.ToList();
+            return _context.JobOffers.Include(jb => jb.UserProfile).OrderByDescending(p => p.CreatedAt);
         }
 
         public void Add(JobOffer jobOffer)
