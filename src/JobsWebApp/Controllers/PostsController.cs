@@ -41,5 +41,18 @@ namespace JobsWebApp.Controllers
             _postService.AddPost(post);
             return RedirectToAction("Index");
         }
+
+        public IActionResult Edit(int id)
+        {
+            var post = _postService.GetPost(id);
+            return View(post);
+        }
+
+        [HttpPost]
+        public IActionResult Edit(Post post)
+        {
+            _postService.EditPost(post);
+            return RedirectToAction("Index");
+        }
     }
 }

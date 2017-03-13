@@ -1,0 +1,19 @@
+﻿@model JobsWebApp.Core.Models.Post
+
+@{
+    ViewBag.Title = "title";
+    Layout = "_Layout";
+}
+
+<h2>Edit Post</h2>
+
+<form asp-controller="Posts" asp-action="Edit" method="post">
+    <div class="form-group">
+        <input asp-for="@Model.Id" type="hidden" />
+        <input asp-for="@Model.CreatedAt" type="hidden" />
+        <input asp-for="@Model.UserProfileId" type="hidden" />
+        <label asp-for="@Model.Content"></label>
+        <textarea asp-for="@Model.Content" class="form-control" placeholder="Content"></textarea>
+    </div>
+    <input type="submit" class="btn btn-primary" />
+</form>
