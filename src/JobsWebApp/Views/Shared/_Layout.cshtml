@@ -6,7 +6,7 @@
     <title>@ViewData["Title"] - JobsWebApp</title>
 
     <environment names="Development">
-        <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
+        <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
         <link rel="stylesheet" href="~/css/site.css" />
     </environment>
     <environment names="Staging,Production">
@@ -17,7 +17,7 @@
     </environment>
 </head>
 <body>
-    <div class="navbar navbar-inverse navbar-fixed-top">
+    <div class="navbar navbar-default navbar-fixed-top">
         <div class="container">
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -29,10 +29,6 @@
                 <a asp-area="" asp-controller="Home" asp-action="Index" class="navbar-brand">JobsWebApp</a>
             </div>
             <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
-                    <li><a asp-area="" asp-controller="Posts" asp-action="Index">Home</a></li>
-                    <li><a asp-area="" asp-controller="JobOffers" asp-action="Index">Jobs</a></li>
-                </ul>
                 @await Html.PartialAsync("_LoginPartial")
             </div>
         </div>
