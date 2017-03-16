@@ -16,9 +16,9 @@ namespace JobsWebApp.Data.Repositories
             _context = context;
         }
 
-        public IEnumerable<Post> GetAll()
+        public IEnumerable<Post> GetAll(int id)
         {
-            return _context.Posts.Include(p=> p.UserProfile).OrderByDescending(p=> p.CreatedAt);
+            return _context.Posts.Where(p=> p.UserProfileId == id).Include(p=> p.UserProfile).OrderByDescending(p=> p.CreatedAt).ToList();
         }
 
         public void Add(Post post)

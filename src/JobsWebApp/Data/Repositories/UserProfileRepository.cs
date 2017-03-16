@@ -39,5 +39,10 @@ namespace JobsWebApp.Data.Repositories
         {
             return _context.UserProfiles.SingleOrDefault(up=> up.Id == id);
         }
+
+        public IEnumerable<UserProfile> FindByUsername(string userName)
+        {
+            return _context.UserProfiles.Where(up => up.UserName.Contains(userName));
+        }
     }
 }

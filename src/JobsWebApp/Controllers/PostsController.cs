@@ -19,16 +19,14 @@ namespace JobsWebApp.Controllers
         {
             _postService = postService;
         }
-
+        
         public IActionResult Index()
         {
-            var sessionId = HttpContext.Session.GetString("sessionUser");
-            if (sessionId == null)
-                return View();
+            var sessionId = int.Parse(HttpContext.Session.GetString("sessionUser"));
             var viewModel = new HomeViewModel
             {
                 IsAuthenticated = true,
-                Posts = _postService.GetAllPosts()
+                Posts = _postService.GetAllPosts(sessionId)
             };
             return View(viewModel);
         }

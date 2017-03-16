@@ -20,9 +20,9 @@ namespace JobsWebApp.Services.Implementations
             _unitOfWork.Save();
         }
 
-        public IEnumerable<Post> GetAllPosts()
+        public IEnumerable<Post> GetAllPosts(int id)
         {
-            return _unitOfWork.PostRepository.GetAll();
+            return _unitOfWork.PostRepository.GetAll(id);
         }
 
         public void DeletePost(Post post)

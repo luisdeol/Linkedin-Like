@@ -7,7 +7,7 @@ namespace JobsWebApp.Core.Repositories
 {
     public interface IPostRepository
     {
-        IEnumerable<Post> GetAll();
+        IEnumerable<Post> GetAll(int id);
         void Add(Post post);
         void Delete(Post post);
         void Edit(Post post);

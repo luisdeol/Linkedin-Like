@@ -10,5 +10,6 @@ namespace JobsWebApp.Services.Interfaces
         IEnumerable<UserProfile> GetAllUserProfiles();
         void DeleteUserProfile(UserProfile userProfile);
         void EditUserProfile(UserProfile userProfile);
+        IEnumerable<UserProfile> SearchUserProfiles(string userName);
     }
 }

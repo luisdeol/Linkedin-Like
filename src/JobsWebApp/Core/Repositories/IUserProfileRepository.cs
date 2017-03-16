@@ -12,5 +12,6 @@ namespace JobsWebApp.Core.Repositories
         void Delete(UserProfile userProfile);
         void Edit(UserProfile userProfile);
         UserProfile FindById(int id);
+        IEnumerable<UserProfile> FindByUsername(string userName);
     }
 }

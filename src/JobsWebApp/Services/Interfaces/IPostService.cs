@@ -7,7 +7,7 @@ namespace JobsWebApp.Services.Interfaces
     {
         void AddPost(Post post);
         Post GetPost(int id);
-        IEnumerable<Post> GetAllPosts();
+        IEnumerable<Post> GetAllPosts(int id);
         void DeletePost(Post post);
         void EditPost(Post post);
     }

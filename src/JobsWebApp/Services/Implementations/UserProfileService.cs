@@ -42,5 +42,10 @@ namespace JobsWebApp.Services.Implementations
             _unitOfWork.UserProfileRepository.Edit(userProfile);
             _unitOfWork.Save();
         }
+
+        public IEnumerable<UserProfile> SearchUserProfiles(string userName)
+        {
+            return _unitOfWork.UserProfileRepository.FindByUsername(userName);
+        }
     }
 }

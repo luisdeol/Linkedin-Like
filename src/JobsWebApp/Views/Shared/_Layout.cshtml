@@ -27,6 +27,20 @@
                     <span class="icon-bar"></span>
                 </button>
                 <a asp-area="" asp-controller="Home" asp-action="Index" class="navbar-brand">JobsWebApp</a>
+                <a asp-area="" asp-controller="UserProfiles" asp-action="Index" class="navbar-brand">My Profile</a>
+                <div style="margin-top: 10px; margin-bottom: -5px; width: 300px; margin-left: 460px;">
+                    <form asp-controller="UserProfiles" asp-action="Search">
+                        <div class="form-group">
+                            <div class="input-group" id="searchUsers">
+                                <input type="text" class="form-control" name="searchQuery" placeholder="Search" />
+                                <span class="input-group-addon">
+                                    <i class="glyphicon glyphicon-search"></i>
+                                </span>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+
             </div>
             <div class="navbar-collapse collapse">
                 @await Html.PartialAsync("_LoginPartial")

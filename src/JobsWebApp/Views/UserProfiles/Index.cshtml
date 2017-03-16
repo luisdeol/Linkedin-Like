@@ -1,0 +1,24 @@
+﻿@using JobsWebApp.Core.Models
+@model UserProfile
+
+@{
+    ViewBag.Title = "User Profile";
+    Layout = "_Layout";
+}
+
+<h2>UserProfile</h2>
+
+
+<div class="panel panel-primary">
+    <div class="panel-heading">
+        <h3 class="panel-title">@Model.UserName</h3>
+    </div>
+    @foreach (var p in Model.Posts)
+    {
+        <div class="post-card">
+            <div class="username">@Model.UserName</div>
+            <div class="content">@p.Content</div>
+            <div class="createdAt">@p.CreatedAt</div>
+        </div>
+    }
+</div>
